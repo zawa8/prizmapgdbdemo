@@ -3,12 +3,14 @@ import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { formatName } from "@/lib/utils";
+import { auth } from "@/auth";
 
 export default async function Post({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const session = await auth();
   const { id } = await params;
   const post = await prisma.post.findUnique({
     where: { id: parseInt(id) },
@@ -21,15 +23,27 @@ export default async function Post({
     notFound();
   }
 
+  const isAuthor = session?.user?.email === post.author.email;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
           <article>
             <header className="mb-8">
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">
-                {post.title}
-              </h1>
+              <div className="flex items-center justify-between mb-6">
+                <h1 className="text-4xl font-bold text-gray-900">
+                  {post.title}
+                </h1>
+                {isAuthor && (
+                  <Link
+                    href={`/posts/${post.id}/edit`}
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors"
+                  >
+                    Edit Post
+                  </Link>
+                )}
+              </div>
 
               {!post.published && (
                 <div className="mb-6 bg-yellow-50 text-yellow-800 px-4 py-2 rounded-md text-sm">

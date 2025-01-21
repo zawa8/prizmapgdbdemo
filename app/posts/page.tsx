@@ -7,8 +7,11 @@ export default async function Posts() {
     include: {
       author: true,
     },
+    where: {
+      published: true,
+    },
     orderBy: {
-      id: "desc",
+      createdAt: "desc",
     },
   });
 

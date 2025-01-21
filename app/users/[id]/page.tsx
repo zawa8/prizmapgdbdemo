@@ -17,7 +17,6 @@ export default async function UserProfile({
     where: { id: parseInt(id) },
     include: {
       posts: {
-        where: { published: true },
         orderBy: { id: "desc" },
       },
     },
@@ -28,6 +27,9 @@ export default async function UserProfile({
   }
 
   const isOwnProfile = session?.user?.email === user.email;
+  const posts = isOwnProfile
+    ? user.posts
+    : user.posts.filter((post) => post.published);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -90,7 +92,7 @@ export default async function UserProfile({
               </Link>
             )}
           </div>
-          {user.posts.length === 0 ? (
+          {posts.length === 0 ? (
             <div className="bg-white rounded-lg border border-gray-100 p-8 text-center">
               <p className="text-gray-500 mb-4">
                 {isOwnProfile
@@ -121,16 +123,23 @@ export default async function UserProfile({
             </div>
           ) : (
             <div className="grid gap-4">
-              {user.posts.map((post) => (
+              {posts.map((post) => (
                 <Link
                   key={post.id}
                   href={`/posts/${post.id}`}
                   className="block transition-transform hover:scale-[1.01]"
                 >
                   <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {post.title}
-                    </h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {post.title}
+                      </h3>
+                      {!post.published && (
+                        <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded">
+                          Draft
+                        </span>
+                      )}
+                    </div>
                     {post.content && (
                       <p className="text-gray-600 line-clamp-2">
                         {post.content}
