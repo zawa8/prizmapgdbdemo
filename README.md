@@ -1,6 +1,10 @@
-# Next.js Example
+# Next.js + Prisma Postgres Example
 
-This example shows how to implement a simple web app using [Next.js](https://nextjs.org/) and [Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client). The example uses an SQLite database file with some initial dummy data. The example was bootstrapped using the Next.js CLI command `create-next-app`.
+![Prisma and Next.js logos](https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-NextJS-Vercel.png)
+
+This example demonstrates how to build a full-stack web application using [Next.js](https://nextjs.org/), [Prisma Client](https://www.prisma.io/docs/orm/overview/introduction/what-is-prisma), and [Prisma Postgres](https://www.prisma.io/postgres).
+
+> **TL;DR:** Prisma Postgres is a new kind of Postgres database that's optimized for developer productivity. It offers instant provisioning, built-in caching and real-time events, and seamless integration with Prisma ORM. [Learn more about Prisma Postgres →](https://www.prisma.io/postgres)
 
 ## Getting started
 
@@ -58,3 +62,43 @@ npm run dev
 ```
 
 The server is now running on `http://localhost:3000`.
+
+<details>
+<summary>📸 Expand for a tour of the app</summary>
+
+### Homepage
+
+Logged out view:
+![Homepage](/public/logged-out-homepage.png)
+
+Logged in view:
+![Homepage](/public/logged-in-homepage.png)
+
+### User Profile
+
+![User Profile](/public/user-profile.png)
+
+### Creating Posts
+
+![Create Post](/public/create-post.png)
+
+### View your posts and drafts
+
+![View Posts](/public/view-posts.png)
+
+</details>
+
+## Next Steps
+
+Here are some ways to learn more and expand upon this example:
+
+1. 🚀 [Deploy your app to Vercel](https://vercel.com/docs/frameworks/nextjs) in just a few clicks
+2. 📚 Learn more about [Prisma ORM](https://www.prisma.io/docs/orm/overview/introduction/what-is-prisma) and database workflows.
+3. 🔍 Explore the [Prisma Client API](https://www.prisma.io/docs/orm/reference/prisma-client-reference) to add more database features.
+4. ⭐ Check out more [Prisma examples](https://github.com/prisma/prisma-examples) for inspiration.
+
+## Community
+
+- [Discord](https://pris.ly/discord)
+- [Twitter](https://twitter.com/prisma)
+- [Bluesky](https://bsky.app/profile/prisma.dev)
