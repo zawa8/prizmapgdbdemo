@@ -95,7 +95,14 @@ export default async function Home() {
   noStore();
 
   const session = await auth();
-  const users = await prisma.user.findMany({ take: 100 });
+  // limit to 100 users and cache for 60 seconds.
+  const users = await prisma.user.findMany({
+    take: 100,
+    cacheStrategy: {
+      ttl: 60,
+      swr: 60,
+    },
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
