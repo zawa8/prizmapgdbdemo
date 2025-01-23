@@ -8,7 +8,9 @@
 
 This example demonstrates how to build a full-stack web application using [Next.js](https://nextjs.org/), [Prisma Client](https://www.prisma.io/docs/orm/overview/introduction/what-is-prisma), and [Prisma Postgres](https://www.prisma.io/postgres).
 
-> **TL;DR:** Prisma Postgres is a new kind of Postgres database that's optimized for developer productivity. It offers instant provisioning, built-in caching and real-time events, and seamless integration with Prisma ORM. [Learn more about Prisma Postgres →](https://www.prisma.io/postgres)
+> **TL;DR:** Prisma Postgres is a new kind of Postgres database that's optimized for developer productivity. It offers instant provisioning, built-in caching and real-time events, and seamless integration with Prisma ORM.
+>
+> [Learn more about Prisma Postgres →](https://www.prisma.io/postgres)
 
 ## Getting started
 
@@ -101,7 +103,7 @@ Here are some ways to learn more and expand upon this example:
 3. 🔍 Explore the [Prisma Client API](https://www.prisma.io/docs/orm/reference/prisma-client-reference) to add more database features.
 4. ⭐ Check out more [Prisma examples](https://github.com/prisma/prisma-examples) for inspiration.
 
-## Community
+## Join our community!
 
 - [Discord](https://pris.ly/discord)
 - [Twitter](https://twitter.com/prisma)
