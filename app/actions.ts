@@ -2,6 +2,7 @@
 
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
+import { containsProfanity } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -17,6 +18,10 @@ export async function publishPost(formData: FormData) {
 
   if (!title?.trim()) {
     throw new Error("Title is required");
+  }
+
+  if (containsProfanity(content)) {
+    throw new Error("Content contains profanity");
   }
 
   const post = await prisma.post.upsert({
@@ -60,6 +65,10 @@ export async function saveDraft(formData: FormData) {
 
   if (!title?.trim()) {
     throw new Error("Title is required");
+  }
+
+  if (containsProfanity(content)) {
+    throw new Error("Content contains profanity");
   }
 
   const post = await prisma.post.upsert({
