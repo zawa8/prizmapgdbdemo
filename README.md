@@ -4,7 +4,7 @@
 
 This example demonstrates how to build a full-stack web application using [Next.js](https://nextjs.org/), [Prisma Client](https://www.prisma.io/docs/orm/overview/introduction/what-is-prisma), and [Prisma Postgres](https://www.prisma.io/postgres).
 
-> **TL;DR:** Prisma Postgres is a new kind of Postgres database that's optimized for developer productivity. It offers instant provisioning, built-in caching and real-time events, and seamless integration with Prisma ORM.
+> **TL;DR:** Prisma Postgres is a new kind of Postgres database that's optimized for developer productivity. It offers instant provisioning, built-in connection pooling, edge caching, and seamless integration with Prisma ORM.
 >
 > [Learn more about Prisma Postgres →](https://www.prisma.io/postgres)
 
@@ -16,7 +16,7 @@ If you just want to run the app locally, rename `.env.example` to `.env` and fil
 
 #### 1.1 Create a Prisma Postgres instance
 
-Go to [the Console](https://console.prisma.io) and create a new Prisma Postgres instance. Use the `DATABASE_URL` and `PULSE_API_KEY` values from the new instance to fill out the `.env` file.
+Go to [the Console](https://console.prisma.io) and create a new Prisma Postgres instance. Use the `DATABASE_URL` value from the new instance to fill out the `.env` file.
 
 #### 1.2 Create a GitHub OAuth app
 
