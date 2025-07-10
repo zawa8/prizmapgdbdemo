@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import { publishPost, saveDraft } from "@/app/actions";
 import { Post } from "@prisma/client";
+import Hsciifontpicker from "./hsciifp/Hsciifontpicker";
 
 function SubmitButton({ isPublished }: { isPublished?: boolean }) {
   const { pending } = useFormStatus();
@@ -40,16 +41,19 @@ export function PostForm({ post }: PostFormProps) {
     <>
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          {!post ? "Create New Post" : "Edit Post"}
+          {!post ? "create new post" : "edit post"}
         </h1>
         {!!post && (
           <Link
             href={`/posts/${post?.id}`}
             className="text-gray-600 hover:text-gray-800 font-medium transition-colors"
           >
-            Cancel
+            cancel
           </Link>
         )}
+      </div>
+      <div className="flex items-center justify-between mb-8">
+        <Hsciifontpicker />
       </div>
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <Form action={publishPost} className="space-y-6">
@@ -59,7 +63,7 @@ export function PostForm({ post }: PostFormProps) {
               htmlFor="title"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Title
+              title
             </label>
             <input
               type="text"
@@ -72,17 +76,12 @@ export function PostForm({ post }: PostFormProps) {
             />
           </div>
           <div>
-            <label
-              htmlFor="content"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Content
-            </label>
+            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2" > content </label>
             <textarea
               id="content"
               name="content"
               defaultValue={post?.content || ""}
-              placeholder="Write your post content here..."
+              placeholder="write your post content here...abcdefghijklmnopqrstuvwxyz N K=kh G=gh C=ch Z=zh T=th D=dh J=jh Q=qh S=sh"
               rows={8}
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
             />

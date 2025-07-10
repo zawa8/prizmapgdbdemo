@@ -70,7 +70,7 @@ export default async function UserProfile({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold text-gray-900">
-              Published Posts
+              published posts
             </h2>
             {isOwnProfile && (
               <Link
@@ -90,7 +90,7 @@ export default async function UserProfile({
                     d="M12 4v16m8-8H4"
                   />
                 </svg>
-                New Post
+                new post
               </Link>
             )}
           </div>
