@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
+import Hsciifontpicker from "@/components/hsciifp/Hsciifontpicker";
 // import { formatName } from "@/lib/utils";
 
 export default async function UserProfile({
@@ -62,6 +63,7 @@ export default async function UserProfile({
                 ← Back to all users
               </Link>
             </div>
+            <div><Hsciifontpicker /></div>
           </div>
         </div>
 
