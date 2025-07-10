@@ -5,23 +5,17 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import { SignInButton, SignOutButton } from "@/components/auth";
 import prisma from "@/lib/prisma";
-import { formatName } from "@/lib/utils";
 
 import type { User } from "@prisma/client";
 import type { Session } from "next-auth";
+import Hsciifontpicker from '@/components/hsciifp/Hsciifontpicker'
 
 function UserMenu({ user }: { user: NonNullable<Session["user"]> }) {
   return (
     <div className="relative group">
       <button className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors">
         {user.image ? (
-          <Image
-            src={user.image}
-            alt={formatName(user.name)}
-            width={32}
-            height={32}
-            className="rounded-full"
-          />
+          <Image src={user.image} alt={user.name ? user.name : "unknown"} width={32} height={32} className="rounded-full" />
         ) : (
           <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
             <span className="text-gray-500 text-sm font-medium">
@@ -30,7 +24,7 @@ function UserMenu({ user }: { user: NonNullable<Session["user"]> }) {
           </div>
         )}
         <span className="text-sm font-medium text-gray-700">
-          {formatName(user.name)}
+          {(user.name)}
         </span>
         <svg
           className="w-4 h-4 text-gray-500"
@@ -69,7 +63,7 @@ function UserCard({ user }: { user: User }) {
         {user.image ? (
           <Image
             src={user.image}
-            alt={formatName(user.name)}
+            alt={(user.name)}
             width={40}
             height={40}
             className="rounded-full"
@@ -83,7 +77,7 @@ function UserCard({ user }: { user: User }) {
         )}
         <div>
           <div className="font-medium text-gray-900">
-            {formatName(user.name)}
+            {(user.name)}
           </div>
         </div>
       </div>
@@ -109,8 +103,9 @@ export default async function Home() {
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 z-10">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold text-gray-900">
-            Superblog
+            superblog
           </Link>
+          <Hsciifontpicker />
           <div>
             {session?.user ? (
               <UserMenu user={session.user} />
