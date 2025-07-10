@@ -63,7 +63,7 @@ function UserCard({ user }: { user: User }) {
         {user.image ? (
           <Image
             src={user.image}
-            alt={(user.name)}
+            alt={user.name ? user.name : "unknown"}
             width={40}
             height={40}
             className="rounded-full"
