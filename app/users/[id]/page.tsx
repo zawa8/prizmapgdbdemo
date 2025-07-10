@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
-import { formatName } from "@/lib/utils";
+// import { formatName } from "@/lib/utils";
 
 export default async function UserProfile({
   params,
@@ -39,7 +39,7 @@ export default async function UserProfile({
             {user.image ? (
               <Image
                 src={user.image}
-                alt={formatName(user.name)}
+                alt={(user.name ? user.name : "unknown")}
                 width={80}
                 height={80}
                 className="rounded-full"
@@ -53,7 +53,7 @@ export default async function UserProfile({
             )}
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                {formatName(user.name)}
+                {(user.name ? user.name : "unknown")}
               </h1>
               <Link
                 href="/"
@@ -117,7 +117,7 @@ export default async function UserProfile({
                       d="M12 4v16m8-8H4"
                     />
                   </svg>
-                  Write your first post
+                  write your first post
                 </Link>
               )}
             </div>

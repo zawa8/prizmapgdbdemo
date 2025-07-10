@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { formatName } from "@/lib/utils";
+// import { formatName } from "@/lib/utils";
 
 export default async function Posts() {
   const posts = await prisma.post.findMany({
@@ -43,7 +43,7 @@ export default async function Posts() {
                   {post.title}
                 </h2>
                 <div className="text-sm text-gray-500">
-                  by {formatName(post.author.name)}
+                  by {(post.author.name)}
                 </div>
               </article>
             </Link>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { formatName } from "@/lib/utils";
+// import { formatName } from "@/lib/utils";
 import { auth } from "@/auth";
 
 export default async function Post({
@@ -55,7 +55,7 @@ export default async function Post({
                 {post.author.image ? (
                   <Image
                     src={post.author.image}
-                    alt={formatName(post.author.name)}
+                    alt={(post.author.name ? post.author.name : "unknown")}
                     width={40}
                     height={40}
                     className="rounded-full"
@@ -71,7 +71,7 @@ export default async function Post({
                   href={`/users/${post.authorId}`}
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  By {formatName(post.author.name)}
+                  By {(post.author.name ? post.author.name : "unknown")}
                 </Link>
               </div>
             </header>
